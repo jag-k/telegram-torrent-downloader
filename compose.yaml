@@ -1,0 +1,12 @@
+services:
+  telegram-torrent-downloader:
+    image: ghrc.io/jag-k/telegram-torrent-downloader:latest
+    environment:
+      # API_ID: YOUR_API_ID
+      # API_HASH: YOUR_API_HASH
+      DOWNLOAD_DIR: /app/downloads
+    env_file:
+      - .env
+    volumes:
+      - "./session:/app/session"
+      - "./downloads:/app/downloads"
