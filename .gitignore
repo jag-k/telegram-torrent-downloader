@@ -144,3 +144,5 @@ pyrightconig.json
 session/
 *.session
 *.session-journal
+
+app/version.py

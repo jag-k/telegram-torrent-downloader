@@ -1,20 +1,52 @@
 [project]
 name = "telegram-torrent-downloader"
-version = "0.1.0"
+dynamic = ["version"]
 description = "Add your description here"
 readme = "README.md"
+authors = [
+    { name = "Jag_k", email = "30597878+jag-k@users.noreply.github.com" }
+]
 requires-python = ">=3.13"
 dependencies = [
     "pydantic>=2.9.2",
     "pydantic-settings>=2.6.1",
     "telethon>=1.37.0",
 ]
+license = {file = "LICENCE"}
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Utilities",
+    "Environment :: Console",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.13",
+]
+repository = "https://github.com/jag-k/telegram-torrent-downloader"
+homepage = "https://github.com/jag-k/telegram-torrent-downloader#readme"
+
+[project.urls]
+"Homepage" = "https://github.com/jag-k/telegram-torrent-downloader"
+"Bug Tracker" = "https://github.com/jag-k/telegram-torrent-downloader/issues"
+"Documentation" = "https://github.com/jag-k/telegram-torrent-downloader#readme"
 
 [project.optional-dependencies]
 cryptg = [
     "cryptg>=0.5.0.post0",
 ]
 
+[project.scripts]
+telegram-torrent-downloader = "main:main"
+
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.build.hooks.vcs]
+version-file = "app/version.py"
 
 [tool.uv]
 dev-dependencies = [
@@ -49,6 +81,7 @@ exclude = [
     '\.local$',
     '^local\.',
     '\.private\.',
+    '^app/version\.py$',
 ]
 disable_error_code = [
     "call-arg",
@@ -73,6 +106,7 @@ extend-exclude = [
     ".idea",
     ".vscode",
     ".fleet",
+    "app/version.py",
 ]
 src = ["app"]
 

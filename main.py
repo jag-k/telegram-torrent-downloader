@@ -14,10 +14,15 @@ client = TelegramClient(
 
 client.add_event_handler(file_downloader, NewMessage(incoming=True))
 
-if __name__ == "__main__":
+
+def main():
     logger.info("Starting the client...")
     client.start()
     logger.info("Client started")
     logger.info(f"Session path: {settings.session_dir}")
     logger.info(f"Base download path: {settings.download_dir}")
     client.run_until_disconnected()
+
+
+if __name__ == "__main__":
+    main()
